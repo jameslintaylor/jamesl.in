@@ -8,6 +8,7 @@ __pycache__
 
 # npm
 node_modules
-
-# uwsgi
+static/bundle.js
+ 
+#uwsgi
 uwsgi.ini
