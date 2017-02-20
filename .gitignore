@@ -3,6 +3,7 @@
 
 # python
 *.py[co]
+.venv
 
 # npm
 node_modules
