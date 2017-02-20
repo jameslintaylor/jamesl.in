@@ -1,0 +1,8 @@
+# MacOS 
+*.DS_*
+
+# python
+*.py[co]
+
+# npm
+node_modules
