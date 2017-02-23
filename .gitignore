@@ -10,5 +10,8 @@ __pycache__
 node_modules
 static/bundle.js
  
-#uwsgi
+# uwsgi
 uwsgi.ini
+
+# vim
+.tern-project
