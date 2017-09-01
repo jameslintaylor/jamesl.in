@@ -1,0 +1,54 @@
+(ns tictactoe.core
+  (:require [reagent.core :as r]
+            [tictactoe.components :as c]))
+
+(enable-console-print!)
+
+(def posts
+  [{:title "This is my first pseudo-post EVER"
+    :body "There is no content to this post"
+    :dir "work"}
+   {:title "This is my second post ever"
+    :body "ran out of things to say now"
+    :dir "tech"}
+   {:title "hamachi - that's a fish!"
+    :body "so yum"
+    :dir "other"}])
+
+;; define your app data so that it doesn't get over-written on reload
+(defonce app-state (r/atom {:posts posts}))
+
+(defn colors
+  [n]
+  (let [hue-delta (/ 360 (inc n))
+        hues (take n (iterate (partial + hue-delta) 0))]
+    (map #(str "hsla(" %1 ",50%,50%,1)") hues)))
+
+(defn app
+  []
+  (let [dirs (reduce (fn [a p] (conj a (:dir p))) #{} posts)
+        col (r/atom (zipmap dirs (colors (count dirs))))
+        fil (r/atom (reduce (fn [a d] (assoc a d true)) {} dirs))]
+    (println "IS ANYONE THERE?")
+    (fn []
+      [:div
+       [:div (map (fn [d]
+                    [c/jlt-toggle d (@col d) true #(swap! fil assoc d %1)])
+                  dirs)]
+       [:ul
+        (map (fn [p]
+               [c/jlt-post-header (:title p) (@col (:dir p))])
+             (filter (comp @fil :dir) posts))]
+       [:div (for [t ["one" "two" "three"]]
+               [:div t])]])))
+
+(r/render-component [app]
+		    (. js/document (getElementById "app")))
+
+(defn on-js-reload []
+  (println "yea")
+  ;; optionally touch your app-state to force rerendering depending on
+  ;; your application
+  ;; (swap! app-state update-in [:__figwheel_counter] inc)
+  )
+

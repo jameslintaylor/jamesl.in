@@ -1,0 +1,38 @@
+(ns tictactoe.components)
+
+(defn jlt-toggle-style
+  [base-color]
+  {:outline "none"
+   :width "100px"
+   :height "30px"
+   :padding "0 66px 16px 0"
+   :border-style "solid"
+   :border-radius "2px"
+   :border-color base-color})
+
+(defn jlt-toggle-style-on
+  [base-color]
+  (merge (jlt-toggle-style base-color) 
+         {:color "white"
+          :background-color base-color
+          :border-width "0"}))
+
+(defn jlt-toggle-style-off
+  [base-color]
+  (merge (jlt-toggle-style base-color) 
+         {:color base-color
+          :background-color "transparent"
+          :border-width "1px"}))
+
+(defn jlt-toggle
+  [title color on-toggle]
+  (let [is-on (r/atom false)
+        style-on (jlt-toggle-style-on color)
+        style-off (jlt-toggle-style-off color)]
+    (add-watch is-on :toggled (fn [key watched old new] (on-toggle new)))
+    (fn []
+      [:input {:type "button"
+               :value title
+               :style (if @is-on style-on style-off)
+               :on-click #(swap! is-on not)}])))
+
