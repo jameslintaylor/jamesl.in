@@ -2000,3 +2000,4 @@ notifying browser that file changed:  resources/public/js/compiled/out/tictactoe
 [0mCompiling "resources/public/js/compiled/tictactoe.js" from ["src"]...[0m
 [32mSuccessfully compiled "resources/public/js/compiled/tictactoe.js" in 0.273 seconds.[0m
 notifying browser that file changed:  resources/public/js/compiled/out/tictactoe/core.js
+Notifying browser that CSS file changed: resources/public/css/style.css
