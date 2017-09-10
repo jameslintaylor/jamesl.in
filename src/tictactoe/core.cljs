@@ -20,14 +20,11 @@
 
 (defn app
   []
-  (let [[lhs-routes rhs-routes] (split-middle routes)
-        route-component (fn [route]
-                          [:div.route (-> route first str rest s/join)])]
+  (letfn [(route-component [route]
+            [:div.route (-> route first str rest s/join)])]
     (fn []
-      [:div#outer-container 
-       [:div#inner-container
-        `[:div#lhs.route-column ~@(map route-component lhs-routes)]
-        `[:div#rhs.route-column ~@(map route-component rhs-routes)]]])))
+      [:div#container
+       `[:div#route-column ~@(map route-component routes)]])))
 
 (r/render-component [app] (. js/document (getElementById "app")))
 
