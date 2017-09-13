@@ -1,32 +1,27 @@
 html, body {
-		background-color: white;
+		background-color: #514653;
+    height: 100%;
+    margin: 0;
 }
 
 #container {
-		/* position: fixed; */
-		height: 600px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-}
-
-:root {
-		--g1: #F0F9FA;
-		--g2: #FFF6FB;
-}
-
-#route-column {
-		display: flex;
 		flex-direction: column;
-		margin-top: 100px;
+		padding-top: 50px;
 }
 
 .route {
-		color: #dedede;
+		color: #887D8A;
 		font-family: "Times New Roman";
-		font-size: 140px;
+		font-size: 150px;
 		font-style: italic;
 		text-decoration: underline;
 		text-align: center;
 		cursor: pointer;
+}
+
+.route:hover {
+		color: #EADEEE;
 }

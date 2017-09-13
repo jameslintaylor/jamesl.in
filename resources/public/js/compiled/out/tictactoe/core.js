@@ -19,7 +19,7 @@ var route_component = (function tictactoe$core$app_$_route_component(route){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.route","div.route",-1726914262),clojure.string.join.call(null,cljs.core.rest.call(null,[cljs.core.str(cljs.core.first.call(null,route))].join('')))], null);
 });
 return (function (){
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div#container","div#container",-1257349488),cljs.core.vec.call(null,cljs.core.sequence.call(null,cljs.core.seq.call(null,cljs.core.concat.call(null,cljs.core._conj.call(null,cljs.core.List.EMPTY,new cljs.core.Keyword(null,"div#route-column","div#route-column",-1544736958)),cljs.core.map.call(null,route_component,tictactoe.core.routes)))))], null);
+return cljs.core.vec.call(null,cljs.core.sequence.call(null,cljs.core.seq.call(null,cljs.core.concat.call(null,cljs.core._conj.call(null,cljs.core.List.EMPTY,new cljs.core.Keyword(null,"div#container","div#container",-1257349488)),cljs.core.map.call(null,route_component,tictactoe.core.routes)))));
 });
 });
 reagent.core.render_component.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [tictactoe.core.app], null),document.getElementById("app"));
@@ -27,4 +27,4 @@ tictactoe.core.on_js_reload = (function tictactoe$core$on_js_reload(){
 return cljs.core.println.call(null,"yea");
 });
 
-//# sourceMappingURL=core.js.map?rel=1505070398343
+//# sourceMappingURL=core.js.map?rel=1505233869710

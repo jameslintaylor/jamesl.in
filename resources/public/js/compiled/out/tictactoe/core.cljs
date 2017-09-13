@@ -23,8 +23,7 @@
   (letfn [(route-component [route]
             [:div.route (-> route first str rest s/join)])]
     (fn []
-      [:div#container
-       `[:div#route-column ~@(map route-component routes)]])))
+      `[:div#container ~@(map route-component routes)])))
 
 (r/render-component [app] (. js/document (getElementById "app")))
 
